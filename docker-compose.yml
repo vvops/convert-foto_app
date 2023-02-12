@@ -11,7 +11,7 @@ services:
       service: converter
     depends_on:
     - rmq
-#    profiles: ["convert"]
+#     profiles: ["convert"]
   api:
     extends:
       file: ./docker-compose_config/docker-compose_api.yml
