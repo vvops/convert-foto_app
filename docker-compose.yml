@@ -1,0 +1,31 @@
+version: "3"
+services:
+  app:
+    extends:
+      file: ./docker-compose_config/docker-compose_app.yml
+      service: app
+#    profiles: ["app"]
+  converter:
+    extends:
+      file: ./docker-compose_config/docker-compose_converter.yml
+      service: converter
+    depends_on:
+    - rmq
+#    profiles: ["convert"]
+  api:
+    extends:
+      file: ./docker-compose_config/docker-compose_api.yml
+      service: api
+#    profiles: ["api"]
+    depends_on:
+    - rmq
+
+  rmq:
+    extends:
+      file: ./docker-compose_config/docker-compose_rmq.yml
+      service: rmq
+#    profiles: ["queue"]
+
+networks:
+  myNetwork:
+    driver: bridge

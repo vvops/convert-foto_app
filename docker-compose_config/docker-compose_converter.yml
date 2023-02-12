@@ -1,0 +1,13 @@
+version: "3"
+services:  
+  converter:
+    build:
+      context: .
+      dockerfile: /home/vova/project/polnoe-prilojenie/docker-demo/apps/converter/Docker>
+    restart: always
+    container_name: converter
+    volumes:
+    - /home/vova/project/polnoe-prilojenie/docker-demo/.env:/opt/app/.env
+    networks:
+    - myNetwork
+#    profiles: ["backend"]

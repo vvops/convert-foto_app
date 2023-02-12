@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: /home/vova/project/polnoe-prilojenie/docker-demo/apps/app/Dockerfile
+    restart: always
+    container_name: app
+    ports:
+    - 3001:80
+    networks:
+    - myNetwork
